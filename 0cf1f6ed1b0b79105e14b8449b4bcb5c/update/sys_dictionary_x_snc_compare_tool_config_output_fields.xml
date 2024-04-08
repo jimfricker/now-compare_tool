@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="output_fields" table="x_snc_compare_tool_config">
         <active>true</active>
         <array>false</array>
-        <attributes>no_sort=true,slushbucket_ref_no_expand=true,maintain_order=true</attributes>
+        <attributes>edge_encryption_enabled=true,maintain_order=true,no_sort=true,slushbucket_ref_no_expand=true</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 

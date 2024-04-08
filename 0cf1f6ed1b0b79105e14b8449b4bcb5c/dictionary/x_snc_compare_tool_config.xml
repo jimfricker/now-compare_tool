@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="c9c63e251b4b79105e14b8449b4bcb0d" label="Compare Configuration" max_length="40" name="x_snc_compare_tool_config" type="collection">
-        <element default="0461fa4e1b07f9105e14b8449b4bcb60" label="Connection Alias (Left)" max_length="32" name="connection_alias_left" reference="sys_alias" reference_qual="connection_type=http_connection^type=connection^EQ" reference_qual_condition="connection_type=http_connection^type=connection^EQ" type="reference"/>
-        <element default="b191be4e1b07f9105e14b8449b4bcbf0" label="Connection Alias (Right)" max_length="32" name="connection_alias_right" reference="sys_alias" reference_qual="connection_type=http_connection^type=connection^EQ" reference_qual_condition="connection_type=http_connection^type=connection^EQ" type="reference"/>
-        <element label="Description" max_length="4000" name="description" type="string"/>
-        <element attributes="condition_builder=v2,show_condition_count=true" dependent="table_left" dependent_on_field="table_left" label="Filter Condition" max_length="4000" name="filter_condition" type="conditions" use_dependent_field="true"/>
-        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" dependent="table_left" dependent_on_field="table_left" label="Key (Fields)" max_length="4000" name="key_fields" reference="sys_dictionary" reference_qual="javascript:'sys_idIN' + new global.GlobalToolsTable().getFields(current.getValue('table_left'), false, true) + '^ORDERBYcolumn_label'" type="glide_list" use_dependent_field="true" use_reference_qualifier="advanced"/>
-        <element choice="3" default="sys_id" label="Key (Type)" max_length="40" name="key_type" type="choice">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" default="0461fa4e1b07f9105e14b8449b4bcb60" label="Connection Alias (Left)" max_length="32" name="connection_alias_left" reference="sys_alias" reference_qual="connection_type=http_connection^type=connection^EQ" reference_qual_condition="connection_type=http_connection^type=connection^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" default="b191be4e1b07f9105e14b8449b4bcbf0" label="Connection Alias (Right)" max_length="32" name="connection_alias_right" reference="sys_alias" reference_qual="connection_type=http_connection^type=connection^EQ" reference_qual_condition="connection_type=http_connection^type=connection^EQ" type="reference"/>
+        <element attributes="condition_builder=v2,edge_encryption_enabled=true,show_condition_count=true" dependent="table_left" dependent_on_field="table_left" label="Filter Condition" max_length="4000" name="filter_condition" type="conditions" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" dependent="table_left" dependent_on_field="table_left" label="Key (Fields)" max_length="4000" name="key_fields" reference="sys_dictionary" reference_qual="javascript:'sys_idIN' + new global.GlobalToolsTable().getFields(current.getValue('table_left'), false, true) + '^ORDERBYcolumn_label'" type="glide_list" use_dependent_field="true" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="sys_id" label="Key (Type)" max_length="40" name="key_type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="SysId" sequence="100" value="sys_id"/>
                 <element inactive_on_update="false" label="Filter Condition" sequence="200" value="filter_condition"/>
                 <element inactive_on_update="false" label="Key Fields" sequence="300" value="key_fields"/>
             </choice>
         </element>
-        <element label="Name" max_length="255" name="name" type="string"/>
         <element default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" read_only="true" type="string"/>
-        <element attributes="no_sort=true,slushbucket_ref_no_expand=true,maintain_order=true" dependent="table_left" dependent_on_field="table_left" label="Output (Fields)" max_length="4000" name="output_fields" reference="sys_dictionary" reference_qual="javascript:'sys_idIN' + new global.GlobalToolsTable().getFields(current.getValue('table_left'), false, true) + '^ORDERBYcolumn_label'" type="glide_list" use_dependent_field="true" use_reference_qualifier="advanced"/>
-        <element choice="3" default="diff" label="Output (Filter)" max_length="40" name="output_filter" type="choice">
+        <element attributes="edge_encryption_enabled=true,maintain_order=true,no_sort=true,slushbucket_ref_no_expand=true" dependent="table_left" dependent_on_field="table_left" label="Output (Fields)" max_length="4000" name="output_fields" reference="sys_dictionary" reference_qual="javascript:'sys_idIN' + new global.GlobalToolsTable().getFields(current.getValue('table_left'), false, true) + '^ORDERBYcolumn_label'" type="glide_list" use_dependent_field="true" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="diff" label="Output (Filter)" max_length="40" name="output_filter" type="choice">
             <choice>
                 <element inactive_on_update="false" label="All differences" sequence="100" value="diff"/>
                 <element inactive_on_update="false" label="Left only" sequence="200" value="left"/>
@@ -24,36 +22,36 @@
                 <element inactive_on_update="false" label="All" sequence="500" value="all"/>
             </choice>
         </element>
-        <element choice="3" default="screen" label="Output (Format)" max_length="40" name="output_format" type="choice">
+        <element attributes="edge_encryption_enabled=true" choice="3" default="screen" label="Output (Format)" max_length="40" name="output_format" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Screen" sequence="100" value="screen"/>
                 <element inactive_on_update="false" label="Attachment (CSV)" sequence="200" value="attach_csv"/>
                 <element inactive_on_update="false" label="Attachment (CSV) Columns" sequence="300" value="attach_csv_2"/>
             </choice>
         </element>
-        <element dependent="table_left" dependent_on_field="table_left" label="Record (Left)" max_length="32" name="record_left" type="document_id" use_dependent_field="true"/>
-        <element dependent="table_right" dependent_on_field="table_right" label="Record (Right)" max_length="32" name="record_right" type="document_id" use_dependent_field="true"/>
-        <element choice="3" default="current" label="Snapshot (Left)" max_length="40" name="snapshot_left" type="choice">
+        <element attributes="edge_encryption_enabled=true" dependent="table_left" dependent_on_field="table_left" label="Record (Left)" max_length="32" name="record_left" type="document_id" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" dependent="table_right" dependent_on_field="table_right" label="Record (Right)" max_length="32" name="record_right" type="document_id" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="current" label="Snapshot (Left)" max_length="40" name="snapshot_left" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Current" sequence="-1" value="current"/>
             </choice>
         </element>
-        <element choice="3" default="latest" label="Snapshot (Right)" max_length="40" name="snapshot_right" type="choice">
+        <element attributes="edge_encryption_enabled=true" choice="3" default="latest" label="Snapshot (Right)" max_length="40" name="snapshot_right" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Latest" value="latest"/>
             </choice>
         </element>
-        <element choice="3" default="complete" label="Status" max_length="40" name="status" read_only="true" type="choice">
+        <element attributes="edge_encryption_enabled=true" choice="3" default="complete" label="Status" max_length="40" name="status" read_only="true" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Running" sequence="100" value="running"/>
                 <element inactive_on_update="false" label="Complete" sequence="200" value="complete"/>
                 <element inactive_on_update="false" label="Error" sequence="300" value="error"/>
             </choice>
         </element>
-        <element label="Table History Show Count" max_length="40" name="table_history_show_count" type="boolean"/>
-        <element attributes="base_start=true,show_all_tables=true,allow_public=true" label="Table (Left)" max_length="80" name="table_left" type="table_name"/>
-        <element attributes="base_start=true,show_all_tables=true,allow_public=true" label="Table (Right)" max_length="80" name="table_right" type="table_name"/>
-        <element choice="3" default="local_local_one" label="Type" mandatory="true" max_length="40" name="type" type="choice">
+        <element attributes="edge_encryption_enabled=true" label="Table History Show Count" max_length="40" name="table_history_show_count" type="boolean"/>
+        <element attributes="allow_public=true,base_start=true,edge_encryption_enabled=true,show_all_tables=true" label="Table (Left)" max_length="80" name="table_left" type="table_name"/>
+        <element attributes="allow_public=true,base_start=true,edge_encryption_enabled=true,show_all_tables=true" label="Table (Right)" max_length="80" name="table_right" type="table_name"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="local_local_one" label="Type" mandatory="true" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Local to Local (One)" sequence="100" value="local_local_one"/>
                 <element inactive="true" inactive_on_update="true" label="Local to Local (List)" sequence="200" value="local_local_list"/>

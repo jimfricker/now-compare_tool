@@ -24,5 +24,4 @@
         <value_action/>
         <visible>false</visible>
     </sys_ui_policy_action>
-    <sys_translated_text action="delete_multiple" query="documentkey=1cdc09831bd771504422dc61ab4bcbb3"/>
 </record_update>

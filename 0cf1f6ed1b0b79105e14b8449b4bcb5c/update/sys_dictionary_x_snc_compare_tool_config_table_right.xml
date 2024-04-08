@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="table_right" table="x_snc_compare_tool_config">
         <active>true</active>
         <array>false</array>
-        <attributes>base_start=true,show_all_tables=true,allow_public=true</attributes>
+        <attributes>allow_public=true,base_start=true,edge_encryption_enabled=true,show_all_tables=true</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
